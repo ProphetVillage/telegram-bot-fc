@@ -1,5 +1,5 @@
 
-const fs = reuqire('fs');
+const fs = require('fs');
 const imagemagick = require('imagemagick-native');
 
 fs.writeFileSync('./chess-board-blur.png', imagemagick.convert({
