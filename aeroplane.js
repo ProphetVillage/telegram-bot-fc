@@ -1,9 +1,11 @@
+'use strict'
 
-var request = require('request');
-var _ = require('underscore');
+const fs = require('fs');
+const request = require('request');
+const _ = require('underscore');
 
-var config = require('./config');
-var BotApi = require('./lib/botapi');
+const config = require('./config');
+const BotApi = require('./lib/botapi');
 
 var ba = new BotApi(config.token, {
   proxyUrl: config.proxy,
@@ -13,12 +15,19 @@ var ba = new BotApi(config.token, {
 // define command
 ba.commands.on('flee', (upd, followString) => {
   console.log(upd, followString);
+  let chat_id = upd.message.chat.id;
   /*this.sendMessage({
     chat_id: chat_id,
     text: '_yk sb_'
-  }, function (err, result) {
+  }, (err, result) => {
     console.log(err, result);
   });*/
+  ba.sendPhoto({
+    chat_id: chat_id,
+    photo: fs.createReadStream('./images/chessmen.png'),
+  }, (err, result) => {
+    console.log(err, result);
+  });
 });
 
 ba.start();

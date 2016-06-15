@@ -3,7 +3,8 @@ var config = {
   "update_type": "long-polling", // or "webhook"
   "webhook": "https://www.example.com/<token>",
   //"proxy": "http://127.0.0.1:8118",
-  "bot_name": "aeroplanechess_bot", // check bot name
+  //"bot_name": "example_bot", // check bot name,
+  "admin_id": "35197423"
 };
 
 module.exports = config;

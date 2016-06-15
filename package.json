@@ -17,7 +17,8 @@
   ],
   "dependencies": {
     "underscore": "*",
-    "request": "*"
+    "request": "*",
+    "imagemagick-native": "*"
   },
   "author": "tengattack",
   "license": "GPL-3.0",
