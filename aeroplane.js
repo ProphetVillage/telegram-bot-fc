@@ -24,10 +24,15 @@ ba.commands.on('flee', (upd, followString) => {
   });*/
   ba.sendPhoto({
     chat_id: chat_id,
-    photo: fs.createReadStream('./images/chessmen.png'),
+    photo: fs.createReadStream('./images/chess-board.png'),
   }, (err, result) => {
     console.log(err, result);
   });
+});
+
+// define command
+ba.commands.on('join', (upd, followString) => {
+  let chat_id = upd.message.chat.id;
 });
 
 ba.start();

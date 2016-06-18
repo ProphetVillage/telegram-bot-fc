@@ -1,7 +1,7 @@
 {
   "name": "telegram-bot-fc",
   "version": "0.1.0",
-  "description": "A flying chess bot for telegram.",
+  "description": "A aeroplane chess bot for telegram.",
   "main": "aeroplane.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,12 +13,12 @@
   "keywords": [
     "telegram",
     "bot",
-    "flyingchess"
+    "aeroplane-chess"
   ],
   "dependencies": {
     "underscore": "*",
     "request": "*",
-    "imagemagick-native": "*"
+    "gm": "*"
   },
   "author": "tengattack",
   "license": "GPL-3.0",
