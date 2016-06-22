@@ -14,21 +14,31 @@ chess.load(chat_id, (err) => {
     console.log(err);
     return;
   }
-  console.log(chess.chessboard);
-  chess.next(4);
-  console.log(chess.chessboard);
-  chess.takeoff();
-  chess.save((err, r) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    // TODO: show result
-    
-    chess.end(() => {
-      db.close();
+  chess.join(1, 't1');
+  chess.join(2, 't2');
+  if (chess.start()) {
+    console.log(chess.playerlist);
+    console.log(chess.chessboard);
+    chess.takeoff();
+    console.log(chess.chessboard);
+    chess.next(0, 4);
+    console.log(chess.chessboard);
+    chess.moveNext();
+    chess.save((err, r) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      // TODO: show result
+      
+      chess.end(() => {
+        db.close();
+      });
     });
-  });
+  } else {
+    console.log('failed to start');
+    db.close();
+  }
 });
 
 }, 1000);
