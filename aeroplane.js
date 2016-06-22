@@ -33,6 +33,7 @@ ba.commands.on('flee', (upd, followString) => {
 // define command
 ba.commands.on('join', (upd, followString) => {
   let chat_id = upd.message.chat.id;
+  
 });
 
 ba.start();

@@ -18,7 +18,8 @@
   "dependencies": {
     "underscore": "*",
     "request": "*",
-    "gm": "*"
+    "gm": "*",
+    "mongodb": "*"
   },
   "author": "tengattack",
   "license": "GPL-3.0",
