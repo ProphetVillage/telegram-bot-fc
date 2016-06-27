@@ -1,6 +1,7 @@
 
 const config = require('./config');
 
+const process = require('process');
 const DB = require('./lib/db');
 const Chess = require('./lib/chess');
 
@@ -53,6 +54,11 @@ chess.load(chat_id, (err) => {
         } else {
           console.log(chess.currentPlayer().chessman, 
             num, choice, chess.chessboard);
+          var r = chess.applyRules(choice);
+          if (r) {
+            console.log('rules', r, chess.chessboard);
+            //process.exit();
+          }
         }
       } else {
         console.log(chess.currentPlayer().chessman, 
