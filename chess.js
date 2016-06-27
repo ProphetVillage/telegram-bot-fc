@@ -20,10 +20,11 @@ chess.load(chat_id, (err) => {
   }
   chess.join(1, 't1');
   chess.join(2, 't2');
+  chess.join(3, 't2');
+  chess.join(4, 't2');
   if (chess.start()) {
     console.log(chess.playerlist);
     console.log(chess.chessboard);
-    
     
     while (true) {
       var num = getRandomInt(1, 7);
@@ -34,14 +35,16 @@ chess.load(chat_id, (err) => {
         }
       } 
       if (!takeoff) {
-        var choice = 0;
+        var choice = getRandomInt(0, 4);
+        var ccount = 0;
         var nomove = true;
-        while (choice < 4) {
+        while (ccount < 4) {
           if (chess.next(choice, num)) {
             nomove = false;
             break;
           } else {
-            choice++;
+            ccount++;
+            choice = (choice + 1) % 4;
           }
         }
         if (nomove) {
@@ -58,8 +61,11 @@ chess.load(chat_id, (err) => {
       
       var win = chess.checkWin();
       //console.log('checkWin', win);
+      if (win) {
+        console.log(chess.currentPlayer().chessman, 'won!');
+      }
       if (win && chess.isEnded()) {
-        console.log('win! and end');
+        console.log('game ended');
         break;
       } else {
         chess.moveNext();
